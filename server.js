@@ -1,7 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const PORT = 3000;
+// const PORT = 3000;
 const app = express();
 const path = require("path");
 const routes = require("./routes")
