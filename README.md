@@ -28,6 +28,7 @@ Fitness tracker application to create, view, and track daily workouts
 
 
 ## Description
+Test
 
       
 
@@ -55,7 +56,7 @@ git clone https://github.com/bpplaysguitar/fitnessTracker.git,
 
 ## Usage
 Screenshot and video of application in use
-![fitnessTracker](/images/fitnessTracker.gif)
+![fitnessTracker](/assets/images/fitnessTracker.gif)
 <br>
 
       

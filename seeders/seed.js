@@ -5,7 +5,6 @@ mongoose.connect('mongodb://localhost/fitness', {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
-  useCreateIndex: true,
 });
 
 const workoutSeed = [
