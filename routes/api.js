@@ -1,65 +1,65 @@
 const router = require("express").Router();
-const Workout = require("../models/workout.js");
+const { Workout } = require("../models");
 
 // create
 router.post("/api/workouts", (req, res) => {
-  Workout.create({})
+  Workout.create({req})
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
     .catch((err) => {
+      console.log(err);
       res.json(err);
     });
 });
 
-router.put("/api/workouts/:id", (req, res) => {
-  Workout.updateOne(
+router.put("/api/workouts/:id", async (req, res) => {
+  try {
+  const data = await Workout.updateOne(
     { "_id": req.params.id },
     { $addToSet: {"exercises":[req.body]} })
-    .then((dbWorkout) => {
-      res.json(dbWorkout);
-    })
-    .catch((err) => {
+      res.json(data);
+  } catch(err) {
+    console.log(err);
       res.json(err);
-    });
+    };
 });
 
-
 // Get last workout 
-router.get("api/workouts", (req, res) => {
-Workout.aggregate([
-  {$sort: {_id:-1}},
-  {$limit: 1},
-  {
-    $addFields: {totalDuration:{$sum: "$exercises.duration"}}
+router.get("/api/workouts", async (req, res) => {
+  try {
+    const data = await Workout.aggregate([
+      { $sort: { _id: -1 } },
+      { $limit: 1 },
+      {
+        $addFields: { totalDuration: { $sum: "$exercises.duration" } },
+      },
+    ]);
+    console.log(data);
+    res.json(data);
+  } catch (err) {
+    console.log(err);
+    res.json(err);
   }
-])
-.then((dbWorkout) => {
-  res.json(dbWorkout);
-})
-.catch((err) => {
-  console.log(err);
-  res.json(err);
-})
 });
 
 // get last 7 workouts 
-router.get("api/workouts/range", (req, res) => {
-  Workout.aggregate([
-    {$sort: {_id:-7}},
-    {$limit: 1},
-    {
-      $addFields: {totalDuration:{$sum: "$exercises.duration"}}
-    }
-  ])
-  .then((dbWorkout) => {
-    res.json(dbWorkout);
-  })
-  .catch((err) => {
+router.get("/api/workouts/range", async (req, res) => {
+  try {
+    const data = await Workout.aggregate([
+      { $sort: { _id: -1 } },
+      { $limit: 7 },
+      { $sort: { _id: 1 } },
+      {
+        $addFields: { totalDuration: { $sum: "$exercises.duration" } },
+      },
+    ]);
+    res.json(data);
+  } catch (err) {
     console.log(err);
     res.json(err);
-  })
-  });
+  }
+});
 
 
 

@@ -49,6 +49,8 @@ git clone https://github.com/bpplaysguitar/fitnessTracker.git,
 5. Create your own repository for the files on GitHub.
 
 6. Edit in your code editor and continue to commit, push changes and perform other Git actions using your repository https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html.
+
+7. Use Heroku to deploy. See http://www.heroku.com for how to get started.
       
 
 ## Usage
