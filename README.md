@@ -28,12 +28,17 @@ Fitness tracker application to create, view, and track daily workouts
 
 
 ## Description
-Test
+This is a fitness tracker that allows the user to enter data about workouts and see a log of recent workouts, as well as data such as total duration of workouts, total sets, total weight. This application connects to a MongoDB Atlas database to work with the data.
 
-      
 
 ## Technologies Used
-
+HTML <br>
+CSS <br>
+JavaScript <br>
+Node.js <br>
+Express.js <br>
+Mongoose <br>
+Morgan <br>
       
       
 ## Installation
@@ -58,6 +63,7 @@ git clone https://github.com/bpplaysguitar/fitnessTracker.git,
 Screenshot and video of application in use
 ![fitnessTracker](./public/assets/images/fitnessTracker.gif)
 <br>
+Use the buttons to create a new workout, continue a workout, or view the dashboard to see data about your workouts.
 
       
 ## Credits
