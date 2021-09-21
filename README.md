@@ -56,7 +56,7 @@ git clone https://github.com/bpplaysguitar/fitnessTracker.git,
 
 ## Usage
 Screenshot and video of application in use
-![fitnessTracker](/assets/images/fitnessTracker.gif)
+![fitnessTracker](./public/assets/images/fitnessTracker.gif)
 <br>
 
       
